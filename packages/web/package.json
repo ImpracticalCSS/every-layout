@@ -1,0 +1,11 @@
+{
+  "name": "every-layout-web",
+  "packageManager": "yarn@3.2.2",
+  "devDependencies": {
+    "@types/react": "^18.0.17",
+    "@types/react-dom": "^18.0.6",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "typescript": "^4.7.4"
+  }
+}
