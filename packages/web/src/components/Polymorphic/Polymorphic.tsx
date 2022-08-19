@@ -9,7 +9,7 @@ const Polymorphic = <
   ...props
 }: PolymorphicComponentProps<E, P>) => {
   const Component = as || "div";
-
+    
   return <Component {...props} />;
 };
 
