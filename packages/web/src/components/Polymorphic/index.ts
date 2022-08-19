@@ -1,1 +1,1 @@
-export { default } from "./Polymorphic";
+export { default as Polymorphic } from "./Polymorphic";

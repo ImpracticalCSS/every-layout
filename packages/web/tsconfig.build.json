@@ -3,7 +3,7 @@
   "compilerOptions": {
     "baseUrl": "./",
     "rootDir": "./src",
-    "outDir": "./lib",
+    "outFile": "./lib/index.d.ts",
     "emitDeclarationOnly": true,
     "declaration": true,
     "declarationMap": true,
