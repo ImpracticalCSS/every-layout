@@ -1,85 +1,38 @@
 import type {
-  ComponentClass,
+  ComponentType,
   JSXElementConstructor,
   LegacyRef,
   PropsWithoutRef,
 } from "react";
 import type {
   ActivityIndicator,
-  ActivityIndicatorProps,
   Button,
-  ButtonProps,
   DatePickerIOS,
-  DatePickerIOSProps,
   DrawerLayoutAndroid,
-  DrawerLayoutAndroidProps,
   FlatList,
-  FlatListProps,
   Image,
   ImageBackground,
-  ImageBackgroundProps,
-  ImageProps,
   KeyboardAvoidingView,
-  KeyboardAvoidingViewProps,
   Modal,
-  ModalProps,
   Pressable,
-  PressableProps,
   ProgressBarAndroid,
-  ProgressBarAndroidProps,
   ProgressViewIOS,
-  ProgressViewIOSProps,
   RefreshControl,
-  RefreshControlProps,
   SafeAreaView,
   ScrollView,
-  ScrollViewProps,
   SectionList,
-  SectionListProps,
   Slider,
-  SliderProps,
   Switch,
-  SwitchProps,
-  Text,
   TextInput,
-  TextInputProps,
-  TextProps,
   TouchableHighlight,
-  TouchableHighlightProps,
   TouchableOpacity,
-  TouchableOpacityProps,
   View,
-  ViewProps,
   VirtualizedList,
-  VirtualizedListProps,
 } from "react-native";
 
-export const components = [
-  "ActivityIndicator",
-  "Button",
-  "DatePickerIOS",
-  "DrawerLayoutAndroid",
-  "FlatList",
-  "Image",
-  "ImageBackground",
-  "KeyboardAvoidingView",
-  "Modal",
-  "Pressable",
-  "ProgressBarAndroid",
-  "ProgressViewIOS",
-  "RefreshControl",
-  "SafeAreaView",
-  "ScrollView",
-  "SectionList",
-  "Slider",
-  "Switch",
-  "Text",
-  "TextInput",
-  "TouchableHighlight",
-  "TouchableOpacity",
-  "View",
-  "VirtualizedList",
-] as const;
+export const reactNative = require("react-native") as Awaited<
+  typeof import("react-native")
+>;
 
 export type IntrinsicElementComponents = {
   ActivityIndicator: ActivityIndicator;
@@ -108,52 +61,75 @@ export type IntrinsicElementComponents = {
   VirtualizedList: VirtualizedList<any>;
 };
 
-export type ReactNativeElements = {
-  ActivityIndicator: ActivityIndicatorProps;
-  Button: ButtonProps;
-  DatePickerIOS: DatePickerIOSProps;
-  DrawerLayoutAndroid: DrawerLayoutAndroidProps;
-  FlatList: FlatListProps<any>;
-  Image: ImageProps;
-  ImageBackground: ImageBackgroundProps;
-  KeyboardAvoidingView: KeyboardAvoidingViewProps;
-  Modal: ModalProps;
-  Pressable: PressableProps;
-  ProgressBarAndroid: ProgressBarAndroidProps;
-  ProgressViewIOS: ProgressViewIOSProps;
-  RefreshControl: RefreshControlProps;
-  SafeAreaView: ViewProps;
-  ScrollView: ScrollViewProps;
-  SectionList: SectionListProps<any>;
-  Slider: SliderProps;
-  Switch: SwitchProps;
-  Text: TextProps;
-  TextInput: TextInputProps;
-  TouchableHighlight: TouchableHighlightProps;
-  TouchableOpacity: TouchableOpacityProps;
-  View: ViewProps;
-  VirtualizedList: VirtualizedListProps<any>;
-};
+export const components = [
+  "ActivityIndicator",
+  "Button",
+  "DatePickerIOS",
+  "DrawerLayoutAndroid",
+  "FlatList",
+  "Image",
+  "ImageBackground",
+  "KeyboardAvoidingView",
+  "Modal",
+  "Pressable",
+  "ProgressBarAndroid",
+  "ProgressViewIOS",
+  "RefreshControl",
+  "SafeAreaView",
+  "ScrollView",
+  "SectionList",
+  "Slider",
+  "Switch",
+  "Text",
+  "TextInput",
+  "TouchableHighlight",
+  "TouchableOpacity",
+  "View",
+  "VirtualizedList",
+] as const;
 
 export type KnownComponents = typeof components[number];
 
+/** Isolates RN-provided components since they don't expose a helper type for this. */
+export type RNComponents = {
+  [K in keyof typeof reactNative]: typeof reactNative[K] extends React.JSXElementConstructor<any>
+    ? typeof reactNative[K]
+    : never;
+};
+
+export type KnownRNComponents = {
+  [K in KnownComponents]: IntrinsicElementComponents[K];
+};
+
+export type RNComponentsKey = {
+  [K in KnownComponents]: typeof reactNative[K] extends React.JSXElementConstructor<any>
+    ? K
+    : never;
+};
+
+export type ReactNativeComponents = {
+  [E in KnownComponents]: React.ComponentProps<RNComponents[E]>;
+};
+
 export type ElementType<P = any> =
   | {
-      [K in keyof ReactNativeElements]: P extends ReactNativeElements[K]
+      [K in keyof ReactNativeComponents]: P extends ReactNativeComponents[K]
         ? K
         : never;
-    }[keyof ReactNativeElements]
-  | ComponentClass<P>;
+    }[keyof ReactNativeComponents]
+  | ComponentType<P>;
 
-type ComponentProps<
-  T extends keyof ReactNativeElements | JSXElementConstructor<any>
+/** Extracts props of a component into a Record/Object */
+export type ComponentProps<
+  T extends KnownComponents | JSXElementConstructor<any>
 > = T extends JSXElementConstructor<infer P>
   ? P
-  : T extends keyof ReactNativeElements
-  ? ReactNativeElements[T]
+  : T extends KnownComponents
+  ? ReactNativeComponents[T]
   : {};
 
-type ComponentPropsWithoutRef<T extends ElementType> = PropsWithoutRef<
+/** Extracts props of a component into a Record/Object and removes the `ref` property. */
+export type ComponentPropsWithoutRef<T extends ElementType> = PropsWithoutRef<
   ComponentProps<T>
 >;
 
@@ -163,8 +139,7 @@ export type AsProp<C extends ElementType> = {
 
 export type PolymorphicRef<C extends ElementType> = LegacyRef<C>;
 
-
-export type PolymorphicComponentProp<
+export type PolymorphicComponentPropsWithoutAs<
   C extends ElementType,
   Props = {}
 > = Props & AsProp<C> & Omit<ComponentPropsWithoutRef<C>, keyof Props | "as">;
@@ -180,7 +155,7 @@ export type PolymorphicComponentProp<
 export type PolymorphicComponentPropWithRef<
   C extends ElementType,
   Props = {}
-> = PolymorphicComponentProp<C, Props> & { ref?: PolymorphicRef<C> };
+> = PolymorphicComponentPropsWithoutAs<C, Props> & { ref?: PolymorphicRef<C> };
 
 /**
  * Polymorphic Components are React components that can be casted as another component via a prop such as `as`.

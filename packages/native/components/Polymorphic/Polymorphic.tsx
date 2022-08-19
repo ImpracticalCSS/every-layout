@@ -1,36 +1,15 @@
 import React from "react";
+import { View } from "react-native";
 import type {
   ElementType,
   PolymorphicComponentProps,
   KnownComponents,
+  KnownRNComponents,
 } from "./Polymorphic.types";
+import { reactNative } from "./Polymorphic.types";
 import { components } from "./Polymorphic.types";
 
-const reactNative = require("react-native") as Awaited<
-  typeof import("react-native")
->;
-
-/** Isolates RN-provided components since they don't expose a helper type for this. */
-type RNComponents = {
-  [K in keyof typeof reactNative]: typeof reactNative[K] extends React.JSXElementConstructor<any>
-    ? typeof reactNative[K]
-    : never;
-};
-
-type ReactNativeComponents = {
-  [E in KnownComponents]: React.ComponentProps<RNComponents[E]>;
-};
-
-const elements = {} as RNComponents;
-
-/**
- * 
- * @param param0 
- * as ReactNativeComponents & {
-    getComponent: () => React.ComponentProps<any>
-};
- * @returns 
- */
+const elements = {} as KnownRNComponents;
 
 const Polymorphic = <
   E extends ElementType = ElementType,
@@ -38,13 +17,11 @@ const Polymorphic = <
 >({
   as,
   ...restProps
-}: PolymorphicComponentProps<E, P>): JSX.Element | null => {
-  const Component =
-    typeof as === "string" && as in elements
-      ? elements[as as any as keyof ReactNativeComponents]
-      : as ?? elements.View;
+}: PolymorphicComponentProps<E, P>) => {
+  const Component = typeof as === "string" ? elements[as as KnownComponents] : elements.View;
 
   if (Component) {
+    // @ts-ignore (unsure how to fix this will come back)
     return <Component {...restProps} />;
   }
 
