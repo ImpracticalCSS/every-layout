@@ -1,1 +1,1 @@
-export { default } from "./Cover";
+export { default as Cover } from "./Cover";

@@ -1,1 +1,1 @@
-export { default } from "./Cluster";
+export { default as Cluster } from "./Cluster";
