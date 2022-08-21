@@ -1,7 +1,7 @@
 import { styled } from "@linaria/react";
 import { SwitcherStyledProps } from "./Swticher.types";
 
-export const StyledSwitcher = styled.div<SwitcherStyledProps>`
+export const Switcher = styled.div<SwitcherStyledProps>`
   display: flex;
   flex-wrap: wrap;
   gap: ${({ gap = 0 }) => typeof gap === "number" ? `${gap}rem` : gap};

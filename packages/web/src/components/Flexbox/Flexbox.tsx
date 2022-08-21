@@ -24,6 +24,7 @@ const Flexbox = <E extends ElementType = "div">(
   return (
     <Styled.Flexbox
       {...restProps}
+      as={as}
       ref={ref}
       flex={flex}
       flexDirection={flexDirection}

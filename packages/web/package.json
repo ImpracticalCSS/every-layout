@@ -1,5 +1,5 @@
 {
-  "name": "every-layout-web",
+  "name": "@impractical/every-layout",
   "packageManager": "yarn@3.2.2",
   "scripts": {
     "build:ts": "tsc -p tsconfig.build.json",
@@ -46,6 +46,7 @@
   "dependencies": {
     "@linaria/babel-preset": "^4.0.0",
     "@linaria/core": "^4.0.0",
-    "@linaria/react": "^4.0.0"
+    "@linaria/react": "^4.0.0",
+    "csstype": "^3.1.0"
   }
 }

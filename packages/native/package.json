@@ -1,5 +1,5 @@
 {
-  "name": "every-layout-native",
+  "name": "@impractical/every-layout-native",
   "packageManager": "yarn@3.2.2",
   "devDependencies": {
     "@types/react": "^18.0.17",

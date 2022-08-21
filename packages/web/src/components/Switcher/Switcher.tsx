@@ -1,5 +1,5 @@
 import React, { ElementType } from "react";
-import { StyledSwitcher } from "./Switcher.styled";
+import * as Styled from "./Switcher.styled";
 import { SwitcherProps } from "./Swticher.types";
 
 /**
@@ -10,9 +10,9 @@ import { SwitcherProps } from "./Swticher.types";
  */
 const Switcher = <E extends ElementType = "div">({ children, as, ref, threshold, gap = 0, ...rest }: React.PropsWithChildren<SwitcherProps<E>>) => {
     return (
-        <StyledSwitcher as={as} threshold={threshold} gap={gap} {...rest}>
+        <Styled.Switcher as={as} threshold={threshold} gap={gap} {...rest}>
             {children}
-        </StyledSwitcher>
+        </Styled.Switcher>
     );
 }
 

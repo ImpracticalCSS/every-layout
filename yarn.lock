@@ -1837,6 +1837,62 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@impractical/every-layout-native@workspace:packages/native":
+  version: 0.0.0-use.local
+  resolution: "@impractical/every-layout-native@workspace:packages/native"
+  dependencies:
+    "@types/react": ^18.0.17
+    "@types/react-dom": ^18.0.6
+    "@types/react-native": ^0.69.5
+    react: ^18.2.0
+    react-dom: ^18.2.0
+    react-native: ^0.69.4
+    react-native-web: ^0.18.7
+    typescript: ^4.7.4
+  languageName: unknown
+  linkType: soft
+
+"@impractical/every-layout@workspace:packages/web":
+  version: 0.0.0-use.local
+  resolution: "@impractical/every-layout@workspace:packages/web"
+  dependencies:
+    "@babel/cli": ^7.18.10
+    "@babel/core": ^7.18.10
+    "@babel/preset-env": ^7.18.10
+    "@babel/preset-react": ^7.18.6
+    "@babel/preset-typescript": ^7.18.6
+    "@linaria/babel-preset": ^4.0.0
+    "@linaria/core": ^4.0.0
+    "@linaria/react": ^4.0.0
+    "@linaria/webpack-loader": ^4.1.2
+    "@mdx-js/react": ^1.6.22
+    "@storybook/addon-actions": ^6.5.10
+    "@storybook/addon-docs": ^6.5.10
+    "@storybook/addon-essentials": ^6.5.10
+    "@storybook/addon-interactions": ^6.5.10
+    "@storybook/addon-knobs": ^6.4.0
+    "@storybook/addon-links": ^6.5.10
+    "@storybook/builder-webpack5": ^6.5.10
+    "@storybook/manager-webpack5": ^6.5.10
+    "@storybook/react": ^6.5.10
+    "@storybook/testing-library": ^0.0.13
+    "@types/react": ^18.0.17
+    "@types/react-dom": ^18.0.6
+    "@types/webpack-env": ^1.18.0
+    babel-loader: ^8.2.5
+    css-loader: ^6.7.1
+    csstype: ^3.1.0
+    file-loader: ^6.2.0
+    mini-css-extract-plugin: ^2.6.1
+    react: ^18.2.0
+    react-dom: ^18.2.0
+    terser-webpack-plugin: ^5.3.5
+    typescript: ^4.7.4
+    webpack: ^5.74.0
+    webpack-cli: ^4.10.0
+  languageName: unknown
+  linkType: soft
+
 "@istanbuljs/load-nyc-config@npm:^1.0.0":
   version: 1.1.0
   resolution: "@istanbuljs/load-nyc-config@npm:1.1.0"
@@ -6968,7 +7024,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"csstype@npm:^3.0.2":
+"csstype@npm:^3.0.2, csstype@npm:^3.1.0":
   version: 3.1.0
   resolution: "csstype@npm:3.1.0"
   checksum: 644e986cefab86525f0b674a06889cfdbb1f117e5b7d1ce0fc55b0423ecc58807a1ea42ecc75c4f18999d14fc42d1d255f84662a45003a52bb5840e977eb2ffd
@@ -7774,61 +7830,6 @@ __metadata:
   checksum: f6f487ad2198aa41d878fa31452f1a3c00958f46e9019286ff4787c84aac329332ab45c9cdc8c445928fc6d7ded294b9e005a7fce9426488518017831b272780
   languageName: node
   linkType: hard
-
-"every-layout-native@workspace:packages/native":
-  version: 0.0.0-use.local
-  resolution: "every-layout-native@workspace:packages/native"
-  dependencies:
-    "@types/react": ^18.0.17
-    "@types/react-dom": ^18.0.6
-    "@types/react-native": ^0.69.5
-    react: ^18.2.0
-    react-dom: ^18.2.0
-    react-native: ^0.69.4
-    react-native-web: ^0.18.7
-    typescript: ^4.7.4
-  languageName: unknown
-  linkType: soft
-
-"every-layout-web@workspace:packages/web":
-  version: 0.0.0-use.local
-  resolution: "every-layout-web@workspace:packages/web"
-  dependencies:
-    "@babel/cli": ^7.18.10
-    "@babel/core": ^7.18.10
-    "@babel/preset-env": ^7.18.10
-    "@babel/preset-react": ^7.18.6
-    "@babel/preset-typescript": ^7.18.6
-    "@linaria/babel-preset": ^4.0.0
-    "@linaria/core": ^4.0.0
-    "@linaria/react": ^4.0.0
-    "@linaria/webpack-loader": ^4.1.2
-    "@mdx-js/react": ^1.6.22
-    "@storybook/addon-actions": ^6.5.10
-    "@storybook/addon-docs": ^6.5.10
-    "@storybook/addon-essentials": ^6.5.10
-    "@storybook/addon-interactions": ^6.5.10
-    "@storybook/addon-knobs": ^6.4.0
-    "@storybook/addon-links": ^6.5.10
-    "@storybook/builder-webpack5": ^6.5.10
-    "@storybook/manager-webpack5": ^6.5.10
-    "@storybook/react": ^6.5.10
-    "@storybook/testing-library": ^0.0.13
-    "@types/react": ^18.0.17
-    "@types/react-dom": ^18.0.6
-    "@types/webpack-env": ^1.18.0
-    babel-loader: ^8.2.5
-    css-loader: ^6.7.1
-    file-loader: ^6.2.0
-    mini-css-extract-plugin: ^2.6.1
-    react: ^18.2.0
-    react-dom: ^18.2.0
-    terser-webpack-plugin: ^5.3.5
-    typescript: ^4.7.4
-    webpack: ^5.74.0
-    webpack-cli: ^4.10.0
-  languageName: unknown
-  linkType: soft
 
 "every-layout@workspace:.":
   version: 0.0.0-use.local
