@@ -1,11 +1,19 @@
-import type { ElementType } from "react";
+import type {
+  ComponentPropsWithoutRef,
+  ComponentPropsWithRef,
+  ElementType,
+} from "react";
+
+export type AnyObject = Record<string, unknown>;
 
 export type AsProp<C extends ElementType> = {
   as?: C;
 };
 
-export type PolymorphicRef<C extends React.ElementType> =
-  React.ComponentPropsWithRef<C>["ref"];
+export type PolymorphicRef<C extends ElementType> =
+  ComponentPropsWithRef<C>["ref"];
+
+export type RemoveAsProp<E extends ElementType, A, B> = AsProp<E> & Omit<A, keyof B | "as">;
 
 /**
  * Polymorphic Components are React components that can be casted as another component via a prop such as `as`.
@@ -16,21 +24,23 @@ export type PolymorphicRef<C extends React.ElementType> =
  * ```
  */
 export type PolymorphicComponentProp<
-  C extends ElementType,
-  Props = {}
-> = Props &
-  AsProp<C> &
-  Omit<React.ComponentPropsWithoutRef<C>, keyof Props | "as">;
+  E extends ElementType,
+  Props extends AnyObject = {}
+> = Props & RemoveAsProp<E, ComponentPropsWithoutRef<E>, Props>;
+
+export type AddOptionalRef<E extends ElementType, Props extends AnyObject> = Props & {
+  ref?: PolymorphicRef<E>;
+};
 
 /**
  * Polymorphic component with a ref.
  */
 export type PolymorphicComponentPropWithRef<
-  C extends React.ElementType,
-  Props = {}
-> = PolymorphicComponentProp<C, Props> & { ref?: PolymorphicRef<C> };
+  E extends ElementType,
+  Props extends AnyObject = {}
+> = AddOptionalRef<E, PolymorphicComponentProp<E, Props>>;
 
 export type PolymorphicComponentProps<
   E extends ElementType = "div",
-  P extends Record<string, unknown> = {}
-> = PolymorphicComponentPropWithRef<E, P>;
+  Props extends AnyObject = {}
+> = PolymorphicComponentPropWithRef<E, Props>;
