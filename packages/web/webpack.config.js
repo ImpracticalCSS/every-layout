@@ -58,8 +58,7 @@ module.exports = {
     : {
         path: path.resolve(__dirname, "lib"),
         filename: "index.js",
-        library: "every-layout",
-        libraryTarget: "umd",
+        libraryTarget: "commonjs",
       },
   plugins: [
     new webpack.DefinePlugin({
@@ -75,8 +74,8 @@ module.exports = {
   externals: isDevelopment
     ? {}
     : {
-        react: "React",
-        "react-dom": "ReactDOM",
+        react: "react",
+        "react-dom": "react-dom",
       },
   module: {
     rules: [srcLoader(), cssLoader()],

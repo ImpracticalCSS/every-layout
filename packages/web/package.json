@@ -1,10 +1,10 @@
 {
   "name": "@impractical/every-layout",
   "description": "A React implementation of every-layout by Heydon Pickering.",
-  "version": "0.0.5",
+  "version": "0.0.12",
   "packageManager": "yarn@3.2.2",
-  "main": "./lib/index.js",
-  "typings": "./lib/index.d.ts",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "license": "MIT",
   "scripts": {
     "build:ts": "tsc -p tsconfig.build.json",
@@ -12,7 +12,8 @@
     "build": "rm -rf lib && yarn build:ts && NODE_ENV=production webpack",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "build-linaria-processor": "tsc -p tsconfig.build.linaria.json"
+    "build-linaria-processor": "tsc -p tsconfig.build.linaria.json",
+    "prepublishOnly": "yarn build"
   },
   "devDependencies": {
     "@babel/cli": "^7.18.10",
