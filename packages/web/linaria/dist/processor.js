@@ -35,7 +35,6 @@ class CustomLinariaProcessor extends styled_1.default {
         __classPrivateFieldSet(this, _CustomLinariaProcessor_custom_template, template_elements, "f");
     }
     addInterpolation(node, source, cssText, unit = '') {
-        console.log("source", source);
         const matches = cssText.match(/([\w-]+)(:\s$)/gm);
         if (!matches) {
             console.error(node, cssText);
