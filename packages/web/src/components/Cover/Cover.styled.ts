@@ -1,6 +1,14 @@
 import { styled } from "@linaria/react";
 import { CoverStyledProps } from "./Cover.types";
 
+export const CoverHeader = styled.div`
+    margin-block-start: 0;
+`;
+
+export const CoverFooter = styled.div`
+    margin-block-end: 0;
+`;
+
 export const CoverCenter = styled.div`
   && {
     margin-block: auto;

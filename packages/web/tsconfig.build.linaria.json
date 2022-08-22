@@ -1,13 +1,11 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "rootDir": "./src",
-    "outFile": "./lib/index.d.ts",
-    "emitDeclarationOnly": true,
+    "outDir": "./linaria/dist",
     "declaration": true,
     "declarationMap": true,
     "resolveJsonModule": true,
   },
-  "include": ["src/**/*"],
+  "include": ["linaria/src/**/*"],
   "exclude": ["node_modules", "lib", "stories"]
 }

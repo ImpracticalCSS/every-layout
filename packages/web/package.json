@@ -6,7 +6,8 @@
     "build:js": "rm -rf lib && babel src --out-dir lib --extensions \".ts,.tsx\" --source-maps inline",
     "build": "rm -rf lib && yarn build:ts && NODE_ENV=production webpack",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "build-linaria-processor": "tsc -p tsconfig.build.linaria.json"
   },
   "devDependencies": {
     "@babel/cli": "^7.18.10",

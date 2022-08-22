@@ -1,7 +1,7 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import Cluster from "./Cluster";
-import Flexbox from "../Flexbox";
+import Cluster from "../src/components/Cluster/Cluster";
+import Flexbox from "../src/components/Flexbox";
 
 export default {
   title: "Cluster",

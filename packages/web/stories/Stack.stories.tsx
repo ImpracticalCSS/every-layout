@@ -1,7 +1,7 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import Stack from "./Stack";
-import Flexbox from "../Flexbox";
+import Stack from "../src/components/Stack/Stack";
+import Flexbox from "../src/components/Flexbox";
 
 export default {
   title: "Stack",
@@ -32,6 +32,7 @@ Default.args = {
   as: "div",
   gap: "1rem",
   recursive: false,
+  paddingHorizontal: 1
 };
 
 export const Recursive = Template.bind({});

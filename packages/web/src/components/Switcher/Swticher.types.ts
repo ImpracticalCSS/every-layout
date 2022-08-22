@@ -1,5 +1,5 @@
 import type { ElementType } from "react";
-import type { PolymorphicComponentProps } from "../Polymorphic";
+import { BoxProps } from "../Box";
 
 export type SwitcherStyledProps = {
   /** The "breakpoint" */
@@ -8,5 +8,7 @@ export type SwitcherStyledProps = {
   gap?: number | string;
 };
 
-export type SwitcherProps<E extends ElementType = "div"> =
-  PolymorphicComponentProps<E, SwitcherStyledProps>;
+export type SwitcherProps<E extends ElementType = "div"> = BoxProps<
+  E,
+  SwitcherStyledProps
+>;

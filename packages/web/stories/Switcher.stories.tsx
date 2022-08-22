@@ -1,7 +1,7 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import Switcher from "./Switcher";
-import Flexbox from "../Flexbox";
+import Switcher from "../src/components/Switcher/Switcher";
+import Flexbox from "../src/components/Flexbox";
 
 export default {
   title: "Switcher",

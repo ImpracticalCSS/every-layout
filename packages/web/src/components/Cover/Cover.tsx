@@ -14,11 +14,15 @@ import { CoverProps } from "./Cover.types";
  * import { Cover } from "@impractical/every-layout";
  * 
  * <Cover minimumHeight="40rem">
- *      <HeaderElement />
+ *      <Cover.Header>
+ *          <HeaderElement />
+ *      </Cover.Header>
  *      <Cover.Center>
  *          <div>This element will always be centered in the cover.</div>
  *      </Cover.Center>
- *      <FooterElement />
+ *      <Cover.Footer>
+ *          <FooterElement />
+ *      </Cover.Footer>
  * <Cover>
  * ```
  */
@@ -30,6 +34,8 @@ const Cover = <E extends ElementType>({ children, space, noPadding, minimumHeigh
     );
 }
 
+Cover.Header = Styled.CoverHeader;
 Cover.Center = Styled.CoverCenter;
+Cover.Footer = Styled.CoverFooter;
 
 export default Cover;
