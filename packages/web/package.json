@@ -1,6 +1,11 @@
 {
   "name": "@impractical/every-layout",
+  "description": "A React implementation of every-layout by Heydon Pickering.",
+  "version": "0.0.5",
   "packageManager": "yarn@3.2.2",
+  "main": "./lib/index.js",
+  "typings": "./lib/index.d.ts",
+  "license": "MIT",
   "scripts": {
     "build:ts": "tsc -p tsconfig.build.json",
     "build:js": "rm -rf lib && babel src --out-dir lib --extensions \".ts,.tsx\" --source-maps inline",
@@ -49,5 +54,9 @@
     "@linaria/core": "^4.0.0",
     "@linaria/react": "^4.0.0",
     "csstype": "^3.1.0"
+  },
+  "peerDependencies": {
+    "react": "*",
+    "react-dom": "*"
   }
 }

@@ -1841,6 +1841,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@impractical/every-layout-native@workspace:packages/native"
   dependencies:
+    "@impractical/every-layout": "workspace:^"
     "@types/react": ^18.0.17
     "@types/react-dom": ^18.0.6
     "@types/react-native": ^0.69.5
@@ -1852,7 +1853,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@impractical/every-layout@workspace:packages/web":
+"@impractical/every-layout@workspace:^, @impractical/every-layout@workspace:packages/web":
   version: 0.0.0-use.local
   resolution: "@impractical/every-layout@workspace:packages/web"
   dependencies:
@@ -1890,6 +1891,9 @@ __metadata:
     typescript: ^4.7.4
     webpack: ^5.74.0
     webpack-cli: ^4.10.0
+  peerDependencies:
+    react: "*"
+    react-dom: "*"
   languageName: unknown
   linkType: soft
 
