@@ -14,7 +14,7 @@
     "build-storybook": "build-storybook",
     "build-linaria-processor": "tsc -p tsconfig.build.linaria.json",
     "prepublishOnly": "yarn build",
-    "deploy": "gh-pages -b main -d storybook-static"
+    "deploy": "gh-pages -b storybook -d storybook-static"
   },
   "devDependencies": {
     "@babel/cli": "^7.18.10",
