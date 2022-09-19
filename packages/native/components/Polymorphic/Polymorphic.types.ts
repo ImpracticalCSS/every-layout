@@ -166,6 +166,6 @@ export type PolymorphicComponentPropWithRef<
  * ```
  */
 export type PolymorphicComponentProps<
-  C extends ElementType = "View",
-  P extends Record<string, unknown> = {}
-> = PolymorphicComponentPropWithRef<C, P>;
+  Element extends ElementType = "View",
+  Props extends Record<string, unknown> = Record<string, unknown>
+> = PolymorphicComponentPropWithRef<Element, Props>;

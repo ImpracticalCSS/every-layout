@@ -3,7 +3,7 @@ import * as Styled from "./Stack.styled";
 import { StackProps } from "./Stack.types";
 
 /**
- * The `Stack` element creates white-spac between a flow of vertical elements.
+ * The `Stack` element creates white-space between a flow of vertical elements.
  */
 const Stack = <E extends ElementType>({
   children,
