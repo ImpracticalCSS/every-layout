@@ -1,6 +1,14 @@
 import { withBackgrounds } from "@storybook/addon-ondevice-backgrounds";
+import { ThemeProvider } from "styled-components/native";
 
-export const decorators = [withBackgrounds];
+export const decorators = [
+  withBackgrounds,
+  (Story) => (
+    <ThemeProvider theme={{}}>
+      <Story />
+    </ThemeProvider>
+  ),
+];
 
 export const parameters = {
   backgrounds: [

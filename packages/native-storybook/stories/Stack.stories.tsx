@@ -1,6 +1,6 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react-native";
-import { Stack } from "@zerry/every-layout-native";
+import { Stack, StackItem } from "../../native";
 import { Text } from "react-native";
 
 type StackStory = ComponentStory<typeof Stack>;
@@ -16,13 +16,18 @@ export default {
   },
 } as ComponentMeta<typeof Stack>;
 
-export const Basic: StackStory = (args) => (
-  <Stack gap={12}>
-    <Stack.Item>
-      <Text>Stack Item 1</Text>
-    </Stack.Item>
-    <Stack.Item>
-      <Text>Stack Item 1</Text>
-    </Stack.Item>
-  </Stack>
+
+const BasicTemplate: StackStory = (args) => (
+    <Stack gap={12}>
+      <StackItem>
+        <Text>Stack 1</Text>
+      </StackItem>
+      <StackItem>
+        <Text>Stack 2</Text>
+      </StackItem>
+    </Stack>
 );
+
+export const Basic = BasicTemplate.bind({});
+
+Basic.args = {};

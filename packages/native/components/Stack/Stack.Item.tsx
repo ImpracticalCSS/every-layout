@@ -1,11 +1,10 @@
 import React from "react";
 import { useStack } from "./Stack.Provider";
-import { StackItemProps } from "./Stack.types";
+import type { StackItemProps } from "./Stack.types";
 import * as Styled from "./Stack.styled";
-import { ElementType } from "../Polymorphic";
 
-const StackItem = <Element extends ElementType<any> = "View">(
-  props: StackItemProps<Element>
+const StackItem = (
+  props: StackItemProps
 ) => {
   const { children, ...restProps } = props;
 
